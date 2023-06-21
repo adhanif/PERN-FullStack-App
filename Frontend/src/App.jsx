@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import AddBookForm from "./assets/components/AddBookForm";
+import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import "./App.css";
 
@@ -17,6 +19,14 @@ function App() {
   }, []);
   return (
     <>
+      <Container>
+        <Row className="justify-content-center">
+          <Col>
+            <AddBookForm books={books} setBooks={setBooks} />
+          </Col>
+        </Row>
+      </Container>
+
       {books.map((book) => {
         return (
           <div key={book.id}>
