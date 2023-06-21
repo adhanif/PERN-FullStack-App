@@ -5,4 +5,4 @@ const pool = new Pool({
   connectionString,
 });
 
-module.exports = connectionString;
+module.exports = pool;
