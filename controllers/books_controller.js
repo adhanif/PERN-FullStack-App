@@ -1,13 +1,39 @@
 const pool = require("../db");
 
+// const getBooks = async (req, res) => {
+//   const { limit, skip } = req.query;
+//   const { search } = req.query;
+
+//   if (limit || skip) {
+//     try {
+//       const { rows } = await pool.query(
+//         "select * from books LIMIT $1 OFFSET $2;",
+//         [limit, skip || 0]
+//       );
+//       // console.log(rows);
+//       res.json(rows);
+//     } catch (error) {
+//       console.log(error.message);
+//       res.status(500).send("Something is wrong");
+//     }
+//   } else if (search) {
+//     console.log(typeof search);
+//     try {
+//       const { rows } = await pool.query(
+//         "select * from books where category ILIKE '%' || $1 || '%';",
+//         [search]
+//       );
+//       res.json(rows);
+//     } catch (error) {
+//       console.log(error.message);
+//       res.status(500).send("Something is wrong");
+//     }
+//   }
+// };
+
 const getBooks = async (req, res) => {
   try {
-    const { limit, skip } = req.query;
-    const { rows } = await pool.query(
-      "select * from books LIMIT $1 OFFSET $2;",
-      [limit, skip || 0]
-    );
-    // console.log(rows);
+    const { rows } = await pool.query("select * from books;");
     res.json(rows);
   } catch (error) {
     console.log(error.message);
@@ -64,4 +90,26 @@ const getBookbyID = async (req, res) => {
   }
 };
 
-module.exports = { getBooks, newBook, deleteBook, getBookbyID };
+// search the books by quer parameter
+
+const searchBookCat = async (req, res) => {
+  const { search } = req.query;
+  try {
+    const { rows } = await pool.query(
+      "select * from books where category ILIKE '%' || $1 || '%';",
+      [search]
+    );
+    res.json(rows);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Something is wrong");
+  }
+};
+
+module.exports = {
+  getBooks,
+  newBook,
+  deleteBook,
+  getBookbyID,
+  searchBookCat,
+};

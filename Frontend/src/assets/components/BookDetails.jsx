@@ -1,10 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function BookDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
+
+  function handleClcik() {
+    navigate("/books");
+  }
 
   const [book, setBook] = useState([]);
   useEffect(() => {
@@ -20,7 +25,7 @@ export default function BookDetails() {
   }, []);
   return (
     <>
-      <Container>
+      <Container className="text-center">
         {book && (
           <div className="text-center mt-5 mb-5">
             <h2>"{book.title}"</h2>
@@ -37,6 +42,18 @@ export default function BookDetails() {
             <p>{book.description}</p>
           </div>
         )}
+        <Row className="justify-content-center">
+          <Col>
+            <Button
+              type="submit"
+              variant="dark"
+              className="mb-5 text-center"
+              onClick={handleClcik}
+            >
+              Go back
+            </Button>
+          </Col>
+        </Row>
       </Container>
     </>
   );

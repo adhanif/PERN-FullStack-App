@@ -14,6 +14,7 @@ import Home from "./assets/components/Home";
 import Books from "./assets/components/Books";
 import BookDetails from "./assets/components/BookDetails";
 import Footer from "./assets/components/Footer";
+
 import "./App.css";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/books" element={<Books />} />
         <Route path="/books/:id" element={<BookDetails />} />
       </Routes>
+
       <Footer />
     </>
   );
