@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import AddBookForm from "./assets/components/AddBookForm";
-import { Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { Routes, Route, NavLink } from "react-router-dom";
+import Home from "./assets/components/Home";
+import Books from "./assets/components/Books";
+import BookDetails from "./assets/components/BookDetails";
+import Footer from "./assets/components/Footer";
 import "./App.css";
 
 function App() {
@@ -19,15 +22,17 @@ function App() {
   }, []);
   return (
     <>
-      <Container>
-        <Row className="justify-content-center">
-          <Col>
-            <AddBookForm books={books} setBooks={setBooks} />
-          </Col>
-        </Row>
-      </Container>
+      <nav className="text-center">
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/books">Books</NavLink>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Books />} />
+        <Route path="/books/:id" element={<BookDetails />} />
+      </Routes>
 
-      {books.map((book) => {
+      {/* {books.map((book) => {
         return (
           <div key={book.id}>
             <h2>{book.title}</h2>
@@ -35,7 +40,9 @@ function App() {
             <p>{book.description}</p>
           </div>
         );
-      })}
+      })} */}
+
+      <Footer />
     </>
   );
 }

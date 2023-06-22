@@ -1,4 +1,5 @@
 const pool = require("../db");
+
 const getBooks = async (req, res) => {
   try {
     const { limit, skip } = req.query;
@@ -6,6 +7,7 @@ const getBooks = async (req, res) => {
       "select * from books LIMIT $1 OFFSET $2;",
       [limit, skip || 0]
     );
+    console.log(rows);
     res.json(rows);
   } catch (error) {
     console.log(error.message);
@@ -49,4 +51,17 @@ const deleteBook = async (req, res) => {
   }
 };
 
-module.exports = { getBooks, newBook, deleteBook };
+//get a book by id
+
+const getBookbyID = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { rows } = await pool.query("select * from books where id=$1;", [id]);
+    res.json(rows);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send("Something is wrong");
+  }
+};
+
+module.exports = { getBooks, newBook, deleteBook, getBookbyID };

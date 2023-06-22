@@ -25,12 +25,12 @@ export default function AddBookForm({ books, setBooks }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (
-      bookTitle != "" &&
-      authorName != "" &&
-      bookDescript != "" &&
-      bookCategory != "" &&
-      bookUrl != "" &&
-      bookDate != "" &&
+      bookTitle != "" ||
+      authorName != "" ||
+      bookDescript != "" ||
+      bookCategory != "" ||
+      bookUrl != "" ||
+      bookDate != "" ||
       bookisActive != ""
     ) {
       console.log(form);
@@ -72,73 +72,77 @@ export default function AddBookForm({ books, setBooks }) {
   }
 
   return (
-    <Card className=" formCard">
+    <Card className="formCard text-center mt-5">
       <Card.Title className="text-center mb-5 form-title">
-        ADD a New Book
+        <h2>ADD a New Book</h2>
       </Card.Title>
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formUserId">
-          <Form.Control
-            type="text"
-            value={bookTitle}
-            onChange={handleBookTitle}
-            placeholder="Add Book Title"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formUserTitle">
-          <Form.Control
-            type="text"
-            value={authorName}
-            onChange={handleAuthorName}
-            placeholder="Add Author Name"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formUserBody">
-          <Form.Control
-            type="text"
-            value={bookDescript}
-            onChange={handleBookDescript}
-            placeholder="Add Book Description"
-          />
-        </Form.Group>
+        <div className="row justify-content-center">
+          <div className="col-sm-12 col-md-9 ">
+            <Form.Group className="mb-3" controlId="formUserId">
+              <Form.Control
+                type="text"
+                value={bookTitle}
+                onChange={handleBookTitle}
+                placeholder="Add Book Title"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formUserTitle">
+              <Form.Control
+                type="text"
+                value={authorName}
+                onChange={handleAuthorName}
+                placeholder="Add Author Name"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formUserBody">
+              <Form.Control
+                type="text"
+                value={bookDescript}
+                onChange={handleBookDescript}
+                placeholder="Add Book Description"
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formUserBody">
-          <Form.Control
-            type="text"
-            value={bookCategory}
-            onChange={handleBookCategory}
-            placeholder="Add Book Category"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formUserBody">
-          <Form.Control
-            type="text"
-            value={bookUrl}
-            onChange={handleBookUrl}
-            placeholder="Add Book image URL"
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formUserBody">
+              <Form.Control
+                type="text"
+                value={bookCategory}
+                onChange={handleBookCategory}
+                placeholder="Add Book Category"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formUserBody">
+              <Form.Control
+                type="text"
+                value={bookUrl}
+                onChange={handleBookUrl}
+                placeholder="Add Book image URL"
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formUserBody">
-          <Form.Control
-            type="text"
-            value={bookDate}
-            onChange={handleBookDate}
-            placeholder="Add publish Date of book"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formUserBody">
-          <Form.Control
-            type="text"
-            value={bookisActive}
-            onChange={handleBookisActive}
-            placeholder="is book active yes/no?"
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formUserBody">
+              <Form.Control
+                type="text"
+                value={bookDate}
+                onChange={handleBookDate}
+                placeholder="Add publish Date of book"
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formUserBody">
+              <Form.Control
+                type="text"
+                value={bookisActive}
+                onChange={handleBookisActive}
+                placeholder="Is book active yes/no?"
+              />
+            </Form.Group>
 
-        <Button type="submit" variant="dark">
-          Submit
-        </Button>
+            <Button type="submit" variant="dark" className="mt-5 w-100">
+              Add Book
+            </Button>
+          </div>
+        </div>
       </Form>
     </Card>
   );

@@ -1,8 +1,8 @@
 .formCard {
-    width: 590px;
+    width: 590px !important;
     padding: 2em 4em 2em 4em;
     margin-bottom: 5rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
     background: rgb(163, 213, 217) !important;
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
