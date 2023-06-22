@@ -33,12 +33,18 @@ export default function AddBookForm({ books, setBooks }) {
       bookDate != "" ||
       bookisActive != ""
     ) {
-      console.log(form);
+      // console.log(form);
       axios
         .post(url, form)
         .then((res) => {
           setBooks([...books, res.data]);
-          // console.log(res.data);
+          setBookTitle("");
+          setAuthorName("");
+          setbookDescript("");
+          setBookCategory("");
+          setbookUrl("");
+          setbookDate("");
+          setBookisActive("");
         })
         .catch((err) => {
           console.log(err);
