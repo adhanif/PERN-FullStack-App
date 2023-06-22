@@ -19,15 +19,20 @@ export default function Home() {
     <>
       <Container>
         <h1
+          className=" text-center"
+          style={{ fontSize: "5rem", marginTop: "4rem", marginBottom: "4rem" }}
+        >
+          <i className="fas fa-book-open text-primary"></i>MY
+          <span className="text-primary">Book</span>APP
+        </h1>
+        {/* <h1
           className="text-center  mb-5"
           style={{ fontSize: "5rem", marginTop: "5rem" }}
         >
           Welcome to my Book Library
-        </h1>
+        </h1> */}
         <Row className="justify-content-center">
-          {/* <Col className="col-lg-6 mt-5" md="auto"> */}
-          <AddBookForm books={books} setBooks={setBooks} />
-          {/* </Col> */}
+          <AddBookForm books={books} setBooks={setBooks} /> 
         </Row>
       </Container>
     </>

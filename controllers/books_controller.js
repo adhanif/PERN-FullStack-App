@@ -7,7 +7,7 @@ const getBooks = async (req, res) => {
       "select * from books LIMIT $1 OFFSET $2;",
       [limit, skip || 0]
     );
-    console.log(rows);
+    // console.log(rows);
     res.json(rows);
   } catch (error) {
     console.log(error.message);

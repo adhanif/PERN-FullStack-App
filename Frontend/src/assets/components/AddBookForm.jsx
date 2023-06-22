@@ -138,7 +138,7 @@ export default function AddBookForm({ books, setBooks }) {
               />
             </Form.Group>
 
-            <Button type="submit" variant="dark" className="mt-5 w-100">
+            <Button type="submit" variant="primary" className="mt-5 w-100">
               Add Book
             </Button>
           </div>

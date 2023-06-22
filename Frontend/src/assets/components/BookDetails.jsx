@@ -22,7 +22,7 @@ export default function BookDetails() {
     <>
       <Container>
         {book && (
-          <div className="text-center mt-5">
+          <div className="text-center mt-5 mb-5">
             <h2>"{book.title}"</h2>
             <p>Author: {book.author}</p>
             <p className="mb-5">
