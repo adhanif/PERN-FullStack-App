@@ -62,7 +62,7 @@ export default function AddBookForm({ books, setBooks }) {
   }
 
   return (
-    <Card className="formCard text-center mt-5">
+    <Card className="formCard text-center mt-5 form-div">
       <Card.Title className="text-center mb-5 form-title">
         <h2>ADD a New Book</h2>
       </Card.Title>
@@ -74,7 +74,7 @@ export default function AddBookForm({ books, setBooks }) {
                 type="text"
                 value={bookTitle}
                 onChange={(e) => setBookTitle(e.target.value)}
-                placeholder="Add Book Title"
+                placeholder="Book Title"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formUserTitle">
@@ -82,7 +82,7 @@ export default function AddBookForm({ books, setBooks }) {
                 type="text"
                 value={authorName}
                 onChange={(e) => setAuthorName(e.target.value)}
-                placeholder="Add Author Name"
+                placeholder="Author's Name"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formUserBody">
@@ -90,7 +90,7 @@ export default function AddBookForm({ books, setBooks }) {
                 type="text"
                 value={bookDescript}
                 onChange={(e) => setbookDescript(e.target.value)}
-                placeholder="Add Book Description"
+                placeholder="Book's Description"
               />
             </Form.Group>
 
@@ -99,7 +99,7 @@ export default function AddBookForm({ books, setBooks }) {
                 type="text"
                 value={bookCategory}
                 onChange={(e) => setBookCategory(e.target.value)}
-                placeholder="Add Book Category"
+                placeholder="Category"
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formUserBody">
@@ -107,7 +107,7 @@ export default function AddBookForm({ books, setBooks }) {
                 type="text"
                 value={bookUrl}
                 onChange={(e) => setbookUrl(e.target.value)}
-                placeholder="Add Book image URL"
+                placeholder="Image URL"
               />
             </Form.Group>
 
@@ -116,7 +116,7 @@ export default function AddBookForm({ books, setBooks }) {
                 type="text"
                 value={bookDate}
                 onChange={(e) => setbookDate(e.target.value)}
-                placeholder="Add publish Date of book"
+                placeholder="Published Date "
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formUserBody">

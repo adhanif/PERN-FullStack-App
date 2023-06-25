@@ -47,7 +47,7 @@ export default function Footer() {
 
             <a
               className="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
+              href="https://www.linkedin.com/in/adnan-hanif/"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -56,7 +56,7 @@ export default function Footer() {
 
             <a
               className="btn btn-link btn-floating btn-lg text-dark m-1"
-              href="#!"
+              href="https://github.com/adhanif"
               role="button"
               data-mdb-ripple-color="dark"
             >
@@ -66,7 +66,7 @@ export default function Footer() {
         </div>
 
         <div className="text-center text-white bg-dark p-3">
-          © 2023 Copyright: Dani Poduction
+          © 2023 Copyright: Adnan Web Developer
           <a className="text-white" href=""></a>
         </div>
       </footer>

@@ -36,8 +36,9 @@ export default function Books() {
     e.preventDefault();
     axios
       .delete(`http://localhost:3000/api/books/${id}`)
-      .then((res) => {
-        setBooks(res.data);
+      .then(() => {
+        setBooks((prevBooks) => prevBooks.filter((book) => book.id !== id));
+        // setBooks([...books, res.data]);
       })
       .catch((err) => {
         console.log(err);
@@ -54,9 +55,9 @@ export default function Books() {
       .catch((err) => console.log(err));
   }
 
-  function handleUserSearch(e) {
-    setInputSearch(e.target.value);
-  }
+  // function handleUserSearch(e) {
+  //   setInputSearch(e.target.value);
+  // }
   function handleSubmit(event) {
     event.preventDefault();
     // console.log(inputSearch);
@@ -66,8 +67,8 @@ export default function Books() {
   //   to={`/books/${book.id}`}
   return (
     <>
-      <Container className="text-center">
-        <Row className="justify-content-center">
+      <Container className="text-center form-div">
+        <Row className="justify-content-center mb-5">
           <Form
             className="d-flex align-items-center mt-5"
             onSubmit={handleSubmit}
@@ -78,7 +79,7 @@ export default function Books() {
               placeholder="Search the category"
               className="me-3"
               aria-label="Search"
-              onChange={handleUserSearch}
+              onChange={(e) => setInputSearch(e.target.value)}
               style={{ height: "2rem" }}
             />
             <Button
@@ -105,7 +106,6 @@ export default function Books() {
                       key={book.id}
                     >
                       <div className="d-flex align-items-center">
-                        {/* <div className="me-2">{index + 1}</div> */}
                         <div className="m-1">
                           <h6>
                             {index + 1} - {book.title}
@@ -147,7 +147,7 @@ export default function Books() {
             <Button
               type="submit"
               variant="info"
-              className="mb-5 text-center"
+              className="mb-5 mt-3 text-center"
               onClick={handleClcik}
             >
               Go back to HOME
