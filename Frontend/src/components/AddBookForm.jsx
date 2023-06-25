@@ -25,14 +25,23 @@ export default function AddBookForm({ books, setBooks }) {
   function handleSubmit(event) {
     event.preventDefault();
     if (
-      bookTitle != "" ||
-      authorName != "" ||
-      bookDescript != "" ||
-      bookCategory != "" ||
-      bookUrl != "" ||
-      bookDate != "" ||
-      bookisActive != ""
+      // bookTitle != "" ||
+      // authorName != "" ||
+      // bookDescript != "" ||
+      // bookCategory != "" ||
+      // bookUrl != "" ||
+      // bookDate != "" ||
+      // bookisActive != ""
+      !bookTitle ||
+      !authorName ||
+      !bookDescript ||
+      !bookCategory ||
+      !bookUrl ||
+      !bookDate ||
+      bookisActive === ""
     ) {
+      alert("Please fill all the Input fields");
+    } else {
       // console.log(form);
       axios
         .post(url, form)
@@ -49,32 +58,7 @@ export default function AddBookForm({ books, setBooks }) {
         .catch((err) => {
           console.log(err);
         });
-    } else {
-      alert("Please Enter the Input Values");
     }
-  }
-
-  function handleBookTitle(e) {
-    setBookTitle(e.target.value);
-  }
-  function handleAuthorName(e) {
-    setAuthorName(e.target.value);
-  }
-  function handleBookDescript(e) {
-    setbookDescript(e.target.value);
-  }
-
-  function handleBookCategory(e) {
-    setBookCategory(e.target.value);
-  }
-  function handleBookUrl(e) {
-    setbookUrl(e.target.value);
-  }
-  function handleBookDate(e) {
-    setbookDate(e.target.value);
-  }
-  function handleBookisActive(e) {
-    setBookisActive(e.target.value);
   }
 
   return (
@@ -89,7 +73,7 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={bookTitle}
-                onChange={handleBookTitle}
+                onChange={(e) => setBookTitle(e.target.value)}
                 placeholder="Add Book Title"
               />
             </Form.Group>
@@ -97,7 +81,7 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={authorName}
-                onChange={handleAuthorName}
+                onChange={(e) => setAuthorName(e.target.value)}
                 placeholder="Add Author Name"
               />
             </Form.Group>
@@ -105,7 +89,7 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={bookDescript}
-                onChange={handleBookDescript}
+                onChange={(e) => setbookDescript(e.target.value)}
                 placeholder="Add Book Description"
               />
             </Form.Group>
@@ -114,7 +98,7 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={bookCategory}
-                onChange={handleBookCategory}
+                onChange={(e) => setBookCategory(e.target.value)}
                 placeholder="Add Book Category"
               />
             </Form.Group>
@@ -122,7 +106,7 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={bookUrl}
-                onChange={handleBookUrl}
+                onChange={(e) => setbookUrl(e.target.value)}
                 placeholder="Add Book image URL"
               />
             </Form.Group>
@@ -131,7 +115,7 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={bookDate}
-                onChange={handleBookDate}
+                onChange={(e) => setbookDate(e.target.value)}
                 placeholder="Add publish Date of book"
               />
             </Form.Group>
@@ -139,8 +123,8 @@ export default function AddBookForm({ books, setBooks }) {
               <Form.Control
                 type="text"
                 value={bookisActive}
-                onChange={handleBookisActive}
-                placeholder="Is book active yes/no?"
+                onChange={(e) => setBookisActive(e.target.value)}
+                placeholder="Is book active? please write yes/no?"
               />
             </Form.Group>
 

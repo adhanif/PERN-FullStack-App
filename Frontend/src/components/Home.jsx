@@ -25,14 +25,8 @@ export default function Home() {
           <i className="fas fa-book-open text-primary"></i>MY
           <span className="text-primary">Book</span>APP
         </h1>
-        {/* <h1
-          className="text-center  mb-5"
-          style={{ fontSize: "5rem", marginTop: "5rem" }}
-        >
-          Welcome to my Book Library
-        </h1> */}
         <Row className="justify-content-center">
-          <AddBookForm books={books} setBooks={setBooks} /> 
+          <AddBookForm books={books} setBooks={setBooks} />
         </Row>
       </Container>
     </>

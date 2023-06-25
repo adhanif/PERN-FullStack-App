@@ -42,12 +42,12 @@ export default function BookDetails() {
             <p>{book.description}</p>
           </div>
         )}
-        <Row className="justify-content-center">
+        <Row>
           <Col>
             <Button
               type="submit"
               variant="dark"
-              className="mb-5 text-center"
+              className="mb-5 "
               onClick={handleClcik}
             >
               Go back

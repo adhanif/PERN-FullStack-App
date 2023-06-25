@@ -14,6 +14,12 @@ export default function Books() {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   const [inputSearch, setInputSearch] = useState();
+  const navigateHome = useNavigate();
+
+  function handleClcik() {
+    navigateHome("/");
+  }
+
   useEffect(() => {
     axios
       .get("http://localhost:3000/api/books")
@@ -24,7 +30,7 @@ export default function Books() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [books]);
 
   function deleteMode(e, id) {
     e.preventDefault();
@@ -60,7 +66,7 @@ export default function Books() {
   //   to={`/books/${book.id}`}
   return (
     <>
-      <Container>
+      <Container className="text-center">
         <Row className="justify-content-center">
           <Form
             className="d-flex align-items-center mt-5"
@@ -134,6 +140,18 @@ export default function Books() {
                   );
                 })}
             </ol>
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <Col>
+            <Button
+              type="submit"
+              variant="info"
+              className="mb-5 text-center"
+              onClick={handleClcik}
+            >
+              Go back to HOME
+            </Button>
           </Col>
         </Row>
       </Container>

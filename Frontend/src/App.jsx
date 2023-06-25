@@ -10,10 +10,10 @@ import {
   Image,
 } from "react-bootstrap";
 import { Routes, Route, NavLink } from "react-router-dom";
-import Home from "./assets/components/Home";
-import Books from "./assets/components/Books";
-import BookDetails from "./assets/components/BookDetails";
-import Footer from "./assets/components/Footer";
+import Home from "./components/Home";
+import Books from "./components/Books";
+import BookDetails from "./components/BookDetails";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
